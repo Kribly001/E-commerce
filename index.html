@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Tienda Tecnologica</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:royalblue">
+                    <img class="logo" src="Images/logoweb.png" alt="logo">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">TiendaTEC</a>
+                    </div>
+                    <div class="carritofondo">
+                        <button type="button" class="btn btn-success">Mi carrito<a href="index.html"><img class="carritoboton" src="Images/carrito.png"></a></button> 
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 class="fontTitulo">Bienvenidos a nuestra tienda</h2>
+            <div>
+                <img onclick='return saberprecio(1800);'class="imageproductos zoom" src="Images/Productos/producto1.jpg" alt="auricularesBluethoo">
+                <img onclick='return saberprecio(35000);'class="imageproductos zoom" src="Images/Productos/producto2.jpg" alt="celualrSamsung">
+                <img onclick='return saberprecio(3700);'class="imageproductos zoom" src="Images/Productos/producto3.jpg" alt="parlantebluethoo">
+                <img onclick='return saberprecio(1200);'class="imageproductos zoom" src="Images/Productos/producto4.jpg" alt="cargadorPortatil">
+                <img onclick='return saberprecio(75000);'class="imageproductos zoom" src="Images/Productos/producto5.jpg" alt="pcGamer">
+                <img onclick='return saberprecio(92000);' class="imageproductos zoom" src="Images/Productos/producto6.jpg" alt="xbox">
+
+            </div>
+        </section>
+    </main>
+
+    <script src="JS/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

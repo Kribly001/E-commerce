@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.logo {
+	height: 60px;
+	float: left;
+}
+
+.carritoboton {
+	height: 25px;
+	right: 10px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-image: url(../Images/fondoweb.jpg);
+}
+
+.fontTitulo {
+	display: grid;
+	place-items: center;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 45px;
+	color: white;
+}
+
+
+.imageproductos {
+	width: 330px;
+	height: 190px;
+	margin: 20px;
+	z-index: 2;
+	border-radius: 3%;
+	box-shadow: 6px 9px 12px black;
+	filter: brightness(50%);
+}
+
+.imageproductos:hover {
+	filter: brightness(100%);
+}
+
+.zoom {
+	margin-left: 30px;
+	transition: .5s;
+}
+
+.zoom:hover {
+	transform: scale(1.1);
+}
