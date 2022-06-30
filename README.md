@@ -1,5 +1,5 @@
 # JavaScript-coder-FINAL
 
-Sitio web Gaming curso Desarrollo web Coderhouse joyseedling
+🌱Sitio web E-commerce curso JavaScript Coderhouse 
 
 https://tiendatec-project-final.netlify.app
