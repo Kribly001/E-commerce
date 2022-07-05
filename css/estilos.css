@@ -9,7 +9,7 @@
 	float: left;
 }
 
-.carritoboton {
+.botonEstilo {
 	height: 25px;
 	right: 10px;
 }
@@ -27,26 +27,37 @@ body {
 	color: white;
 }
 
-
-.imageproductos {
-	width: 330px;
-	height: 190px;
-	margin: 20px;
-	z-index: 2;
-	border-radius: 3%;
-	box-shadow: 6px 9px 12px black;
-	filter: brightness(50%);
+/*ALINEACION DE IMAGENES CARD*/
+.borderCard {
+	margin-left: 20px;
 }
 
-.imageproductos:hover {
+.alinear {
+	width: 300px;
+	height: 200px;
+}
+
+/*EFECTO OSCURECEDOR Y ZOOM, BOTON IMAGENES*/
+
+.efectocursor {
+	filter: brightness(70%);
+}
+
+.efectocursor:hover {
 	filter: brightness(100%);
 }
 
-.zoom {
-	margin-left: 30px;
-	transition: .5s;
+footer {
+	background-color: black;
+	color: white;
+	position: absolute;
+	bottom: -50%;
+	width: 100%;
+	height: 40px;
 }
 
-.zoom:hover {
-	transform: scale(1.1);
+footer p {
+	color: white;
+	font-size: 18px;
+	text-align: center;
 }
