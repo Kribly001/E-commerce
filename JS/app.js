@@ -13,7 +13,7 @@
       } else if (compra == "NO") {
           alert("No se completo la compra")
       } else {
-          alert("No se ingreso un valor valido");
+          alert("No se ingreso un valor validoo");
       }
       return compra;
   }
