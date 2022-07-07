@@ -16,7 +16,8 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	background-image: url(../Images/fondoweb.jpg);
+	/* background-image: url(../Images/fondoweb.jpg); */
+	background-color:black !important;
 }
 
 .fontTitulo {
@@ -47,11 +48,23 @@ body {
 	filter: brightness(100%);
 }
 
+.titleCarrito{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 60px;
+	color: white;
+
+}
+
+.textCarrito{
+	font-family: 'Orbitron', sans-serif;
+	font-size: 25px;
+	color: white;
+}
+
 footer {
 	background-color: black;
 	color: white;
-	position: absolute;
-	bottom: -50%;
+	bottom: 0;
 	width: 100%;
 	height: 40px;
 }
