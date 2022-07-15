@@ -19,12 +19,6 @@ function addToCartClicked(event) {
   const itemImage = item.querySelector('.item-image').src;
 
   addItemToShoppingCart(itemTitle, itemPrice, itemImage);
-  //     let carrito=[itemTitle, itemPrice, itemImage]
-  //     let carritoStorage=JSON.stringify(localStorage.getItem('carrito'));
-  //     if(carritoStorage){
-  //       carrito=carritoStorage
-  //     }
-  //  renderCarrito(carrito)
 }
 
 
