@@ -19,6 +19,12 @@ function addToCartClicked(event) {
   const itemImage = item.querySelector('.item-image').src;
 
   addItemToShoppingCart(itemTitle, itemPrice, itemImage);
+  //     let carrito=[itemTitle, itemPrice, itemImage]
+  //     let carritoStorage=JSON.stringify(localStorage.getItem('carrito'));
+  //     if(carritoStorage){
+  //       carrito=carritoStorage
+  //     }
+  //  renderCarrito(carrito)
 }
 
 
@@ -76,6 +82,8 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 
   updateShoppingCartTotal();
 
+
+  let lst = [1, 2, 3]; // los datos que sean
   lst = [{
     imagen: itemImage,
 
@@ -83,9 +91,19 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 
     precio: itemPrice
   }];
-   localStorage.setItem("list",JSON.stringify(lst))
-  lst = JSON.parse(localStorage.getItem("list"));
+
+  // localStorage.getItem() devuelve null si la clave no existe
+  let datos_existentes = localStorage.getItem('producto');
+  datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+
+  datos_existentes.push(lst);
+  // o
+  // datos_existentes.push({tiempo: new Date().getTime(), datos: datosDeCadaProductoRecuperado});
+
+  localStorage.setItem('producto', JSON.stringify(datos_existentes));
+
 }
+
 
 function updateShoppingCartTotal() {
   let total = 0;
