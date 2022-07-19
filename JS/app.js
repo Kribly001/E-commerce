@@ -98,7 +98,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 
   datos_existentes.push(lst);
   // o
-  // datos_existentes.push({tiempo: new Date().getTime(), datos: datosDeCadaProductoRecuperado});
+  // datos_existentes.push(datos: datosDeCadaProductoRecuperado});
 
   localStorage.setItem('producto', JSON.stringify(datos_existentes));
 
