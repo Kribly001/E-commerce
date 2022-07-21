@@ -1,4 +1,5 @@
 // Alerta boton de compra
+//USO DE TERNARIO Y SWETTALERT
 let totales=0;
 const alerta=document.getElementById("buttonSweet")
 alerta.addEventListener("click", () =>{
@@ -28,6 +29,7 @@ function compraCompletada(){
     imageAlt:'Compra en camino'
   })
 }
+//------------------------------------------------------------
 
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
