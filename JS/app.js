@@ -1,3 +1,34 @@
+// Alerta boton de compra
+let totales=0;
+const alerta=document.getElementById("buttonSweet")
+alerta.addEventListener("click", () =>{
+(totales >= 1000.00)? compraCompletada() : carritovacioAlert();
+})
+
+function carritovacioAlert(){
+  Swal.fire({
+    title: 'Error',
+    text: 'El carrito esta vacio',
+    imageUrl:'https://www.fuegoyamana.com/wp-content/uploads/2017/06/carrito-abandono-ANIMADO.gif',
+    imageWidth: 400,
+    imageHeight:200,
+    confirmButtonText: 'Aceptar',
+    imageAlt:'Carrito Vacio'
+  })
+}
+
+function compraCompletada(){
+  Swal.fire({
+    title: 'Gracias por Confiar!',
+    text: 'Su compra se completo con exito y esta en camino',
+    imageUrl:'https://www.cristaldemar.com.ar/wp-content/uploads/2020/05/envio.gif',
+    imageWidth: 400,
+    imageHeight:200,
+    confirmButtonText: 'Aceptar',
+    imageAlt:'Compra en camino'
+  })
+}
+
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
@@ -10,6 +41,8 @@ const shoppingCartItemsContainer = document.querySelector(
   '.shoppingCartItemsContainer'
 );
 
+
+
 function addToCartClicked(event) {
   const button = event.target;
   const item = button.closest('.item');
@@ -19,12 +52,6 @@ function addToCartClicked(event) {
   const itemImage = item.querySelector('.item-image').src;
 
   addItemToShoppingCart(itemTitle, itemPrice, itemImage);
-  //     let carrito=[itemTitle, itemPrice, itemImage]
-  //     let carritoStorage=JSON.stringify(localStorage.getItem('carrito'));
-  //     if(carritoStorage){
-  //       carrito=carritoStorage
-  //     }
-  //  renderCarrito(carrito)
 }
 
 
@@ -82,7 +109,6 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 
   updateShoppingCartTotal();
 
-
   let lst = [1, 2, 3]; // los datos que sean
   lst = [{
     imagen: itemImage,
@@ -106,7 +132,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 
 
 function updateShoppingCartTotal() {
-  let total = 0;
+  let total=0 ;
   const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
 
   const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
@@ -126,7 +152,8 @@ function updateShoppingCartTotal() {
     );
     total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
-  shoppingCartTotal.innerHTML = `${total.toFixed(2)}$`;
+  shoppingCartTotal.innerHTML = `${total.toFixed(0)}$`;
+  totales=total;
 }
 
 function removeShoppingCartItem(event) {
