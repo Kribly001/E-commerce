@@ -164,7 +164,7 @@ function quantityChanged(event) {
 }
 
 //**************************** */
-//BOTON DE COMPRA
+//BOTON DE COMPRA Y VACIAR CARRITO
 //**************************** */
 function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
