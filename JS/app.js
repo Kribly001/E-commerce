@@ -155,7 +155,7 @@ function removeShoppingCartItem(event) {
 }
 
 //***************************** */
-//AGREGAR PRODUCTOS EN CARRITO
+//AGREGAR PRODUCTOS EN CARRITO Y VALOR 0 NO TOLERADO
 //***************************** */
 function quantityChanged(event) {
   const input = event.target;
