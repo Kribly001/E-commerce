@@ -1,5 +1,7 @@
+//*************************** */
 // Alerta boton de compra
 //USO DE TERNARIO Y SWETTALERT
+//*************************** */
 let totales=0;
 const alerta=document.getElementById("buttonSweet")
 alerta.addEventListener("click", () =>{
@@ -43,8 +45,9 @@ const shoppingCartItemsContainer = document.querySelector(
   '.shoppingCartItemsContainer'
 );
 
-
-
+//*************************** */
+//OBTENER VALORES
+//*************************** */
 function addToCartClicked(event) {
   const button = event.target;
   const item = button.closest('.item');
@@ -55,8 +58,6 @@ function addToCartClicked(event) {
 
   addItemToShoppingCart(itemTitle, itemPrice, itemImage);
 }
-
-
 
 function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
   const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
@@ -75,6 +76,10 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
     }
   }
 
+
+//*************************** */
+//CREACION ELEMENTO HTML DONDE SE MOSTRARA EL CARRITO
+//*************************** */
   const shoppingCartRow = document.createElement('div');
   const shoppingCartContent = `
     <div class="row shoppingCartItem">
@@ -110,29 +115,11 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
     .addEventListener('change', quantityChanged);
 
   updateShoppingCartTotal();
-
-  let lst = [1, 2, 3]; // los datos que sean
-  lst = [{
-    imagen: itemImage,
-
-    titulo: itemTitle,
-
-    precio: itemPrice
-  }];
-
-  // localStorage.getItem() devuelve null si la clave no existe
-  let datos_existentes = localStorage.getItem('producto');
-  datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-
-  datos_existentes.push(lst);
-  // o
-  // datos_existentes.push(datos: datosDeCadaProductoRecuperado});
-
-  localStorage.setItem('producto', JSON.stringify(datos_existentes));
-
 }
 
-
+//*************************** */
+//CALCULO TOTAL DE CARRITO $..
+//*************************** */
 function updateShoppingCartTotal() {
   let total=0 ;
   const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
@@ -158,18 +145,27 @@ function updateShoppingCartTotal() {
   totales=total;
 }
 
+//***************************** */
+//BOTON REMOVER PRODUCTOS
+//***************************** */
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
   buttonClicked.closest('.shoppingCartItem').remove();
   updateShoppingCartTotal();
 }
 
+//***************************** */
+//AGREGAR PRODUCTOS EN CARRITO
+//***************************** */
 function quantityChanged(event) {
   const input = event.target;
   input.value <= 0 ? (input.value = 1) : null;
   updateShoppingCartTotal();
 }
 
+//**************************** */
+//BOTON DE COMPRA
+//**************************** */
 function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();

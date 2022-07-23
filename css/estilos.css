@@ -1,76 +1,65 @@
+/*ESTRUCTURA*/
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
 .logo {
-	height: 60px;
-	float: left;
-}
-
-.botonEstilo {
-	height: 25px;
-	right: 10px;
-}
+  height: 60px;
+  float: left; }
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	/* background-image: url(../Images/fondoweb.jpg); */
-	background-color:black !important;
-}
-
-.fontTitulo {
-	display: grid;
-	place-items: center;
-	font-family: 'Orbitron', sans-serif;
-	font-size: 45px;
-	color: white;
-}
-
-/*ALINEACION DE IMAGENES CARD*/
-.borderCard {
-	margin-left: 20px;
-}
-
-.alinear {
-	width: 300px;
-	height: 200px;
-}
-
-/*EFECTO OSCURECEDOR Y ZOOM, BOTON IMAGENES*/
-
-.efectocursor {
-	filter: brightness(70%);
-}
-
-.efectocursor:hover {
-	filter: brightness(100%);
-}
-
-.titleCarrito{
-	font-family: 'Orbitron', sans-serif;
-	font-size: 60px;
-	color: white;
-
-}
-
-.textCarrito{
-	font-family: 'Orbitron', sans-serif;
-	font-size: 25px;
-	color: white;
-}
+  font-family: 'Montserrat', sans-serif;
+  background-color: black !important; }
 
 footer {
-	background-color: black;
-	color: white;
-	bottom: 0;
-	width: 100%;
-	height: 40px;
-}
+  background-color: black;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  height: 40px; }
+  footer p {
+    color: white;
+    font-size: 18px;
+    text-align: center; }
 
-footer p {
-	color: white;
-	font-size: 18px;
-	text-align: center;
-}
+/*--------------------------------*/
+/*TIPOGRAFIAS*/
+.titleCarrito {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 60px;
+  color: white; }
+
+.textCarrito {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 25px;
+  color: white; }
+
+.fontTitulo {
+  display: grid;
+  place-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 45px;
+  color: white; }
+
+/*--------------------------------*/
+/*EFECTOS*/
+.efectocursor {
+  filter: brightness(70%); }
+  .efectocursor:hover {
+    filter: brightness(100%); }
+
+/*--------------------------------*/
+/*CARD*/
+.botonEstilo {
+  height: 25px;
+  right: 10px; }
+
+.borderCard {
+  margin-left: 20px; }
+
+.alinear {
+  width: 300px;
+  height: 200px; }
+
+/*--------------------------------*/

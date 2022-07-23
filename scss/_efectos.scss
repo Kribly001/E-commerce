@@ -1,0 +1,11 @@
+/*EFECTOS*/
+.efectocursor {
+	filter: brightness(70%);
+    &:hover {
+        filter: brightness(100%);
+    }
+}
+
+/*--------------------------------*/
+
+
