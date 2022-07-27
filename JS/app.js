@@ -2,33 +2,35 @@
 // Alerta boton de compra
 //USO DE TERNARIO Y SWETTALERT
 //*************************** */
-let totales=0;
-const alerta=document.getElementById("buttonSweet")
-alerta.addEventListener("click", () =>{
-(totales >= 1000.00)? compraCompletada() : carritovacioAlert();
+let totals = 0;
+const alerta = document.getElementById("buttonSweet")
+alerta.addEventListener("click", () => {
+  (totals >= 1000.00) ? purchaseCompleted(): emptyCartAlert();
 })
 
-function carritovacioAlert(){
+function emptyCartAlert() {
   Swal.fire({
     title: 'Error',
     text: 'El carrito esta vacio',
-    imageUrl:'https://www.fuegoyamana.com/wp-content/uploads/2017/06/carrito-abandono-ANIMADO.gif',
+    imageUrl: 'https://www.fuegoyamana.com/wp-content/uploads/2017/06/carrito-abandono-ANIMADO.gif',
     imageWidth: 400,
-    imageHeight:200,
-    confirmButtonText: 'Aceptar',
-    imageAlt:'Carrito Vacio'
+    imageHeight: 200,
+    confirmButtonText: 'Agregar Productos',
+    imageAlt: 'Carrito Vacio',
+    backdrop: ` rgba(255,0,0,0.4)`
   })
 }
 
-function compraCompletada(){
+function purchaseCompleted() {
   Swal.fire({
     title: 'Gracias por Confiar!',
     text: 'Su compra se completo con exito y esta en camino',
-    imageUrl:'https://www.cristaldemar.com.ar/wp-content/uploads/2020/05/envio.gif',
+    imageUrl: 'https://www.cristaldemar.com.ar/wp-content/uploads/2020/05/envio.gif',
     imageWidth: 400,
-    imageHeight:200,
+    imageHeight: 200,
     confirmButtonText: 'Aceptar',
-    imageAlt:'Compra en camino'
+    imageAlt: 'Compra en camino',
+    backdrop: ` rgba(0,0,123,0.4)`
   })
 }
 //------------------------------------------------------------
@@ -77,9 +79,9 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
   }
 
 
-//*************************** */
-//CREACION ELEMENTO HTML DONDE SE MOSTRARA EL CARRITO
-//*************************** */
+  //*************************** */
+  //CREACION ELEMENTO HTML DONDE SE MOSTRARA EL CARRITO
+  //*************************** */
   const shoppingCartRow = document.createElement('div');
   const shoppingCartContent = `
     <div class="row shoppingCartItem">
@@ -121,7 +123,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
 //CALCULO TOTAL DE CARRITO $..
 //*************************** */
 function updateShoppingCartTotal() {
-  let total=0 ;
+  let total = 0;
   const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
 
   const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
@@ -142,7 +144,7 @@ function updateShoppingCartTotal() {
     total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
   shoppingCartTotal.innerHTML = `${total.toFixed(0)}$`;
-  totales=total;
+  totals = total;
 }
 
 //***************************** */
@@ -155,7 +157,7 @@ function removeShoppingCartItem(event) {
 }
 
 //***************************** */
-//AGREGAR PRODUCTOS EN CARRITO Y VALOR 0 NO TOLERADO
+//AGREGAR PRODUCTOS EN CARRITO Y VALOR 0 O MENOR NO TOLERADO
 //***************************** */
 function quantityChanged(event) {
   const input = event.target;
@@ -169,4 +171,49 @@ function quantityChanged(event) {
 function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
+}
+
+//**************************** */
+//FORMULARIO DE PEDIDO DE PRODUCTOS
+//**************************** */
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+  .addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    btn.value = 'Enviando...';
+
+    const serviceID = 'default_service';
+    const templateID = 'template_m6rk9rf';
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        btn.value = 'Enviar';
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Formulario enviado correctamente ¡Gracias!'
+        })
+      }, (err) => {
+        btn.value = 'Enviar';
+        alert(JSON.stringify(err));
+      });
+    cleanForm();
+  });
+
+//LIMPIAR FORM AL ENVIAR
+function cleanForm() {
+  document.getElementById('form').reset();
 }

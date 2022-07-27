@@ -63,3 +63,17 @@ footer {
   height: 200px; }
 
 /*--------------------------------*/
+/*FORMULARIO*/
+.containerForm {
+  display: flex;
+  justify-content: center; }
+
+.textForm {
+  font-family: 'Source Code Pro', monospace;
+  color: white; }
+
+.centerTitulo {
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 15px; }
