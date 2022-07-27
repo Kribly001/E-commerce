@@ -77,3 +77,48 @@ footer {
   place-items: center;
   color: white;
   font-size: 15px; }
+
+/*--------------------------------*/
+/*RESPOSIVE*/
+@media only screen and (max-width: 768px) {
+  /*DATOS CARD*/
+  .shopping-cart-image {
+    width: 50px;
+    height: 40px; }
+  .shoppingCartItemPrice {
+    font-size: 10px; }
+  .shoppingCartItemTitle {
+    font-size: 10px; }
+  .shoppingCartItemQuantity {
+    font-size: 8px; }
+  .buttonDelete {
+    width: 2px;
+    height: 10px;
+    font-size: 5px !important; }
+  /*TITULOS CARRITO*/
+  .textCarrito {
+    font-size: 10px; }
+  /*DATOS CARD*/
+  .addToCart {
+    width: 50px;
+    height: 25px;
+    font-size: 5px !important; }
+  .item-title {
+    font-size: 10px; }
+  .item-image {
+    width: 9px;
+    height: 70px; }
+  .item-price {
+    font-size: 10px; }
+  .comprarButton {
+    height: 25px;
+    font-size: 5px !important; }
+  /*NAVBAR*/
+  .logo {
+    margin-left: auto;
+    margin-right: auto; }
+  header a {
+    margin-left: auto !important;
+    margin-right: auto !important; } }
+
+/*--------------------------------*/
