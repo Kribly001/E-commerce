@@ -90,7 +90,8 @@ footer {
   .shoppingCartItemTitle {
     font-size: 10px; }
   .shoppingCartItemQuantity {
-    font-size: 8px; }
+    font-size: 8px;
+    background-color: darkslateblue; }
   .buttonDelete {
     width: 2px;
     height: 10px;
