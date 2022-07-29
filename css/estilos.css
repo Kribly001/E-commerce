@@ -84,9 +84,9 @@ footer {
   font-size: 15px; }
 
 /*--------------------------------*/
-/*RESPOSIVE*/
+/*RESPONSIVE*/
 @media only screen and (max-width: 768px) {
-  /*DATOS CARD*/
+  /*DATOS ESTRUCTURA*/
   .shopping-cart-image {
     width: 50px;
     height: 40px; }
