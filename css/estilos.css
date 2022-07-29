@@ -27,7 +27,7 @@ footer {
 /*TIPOGRAFIAS*/
 .titleCarrito {
   font-family: 'Orbitron', sans-serif;
-  font-size: 60px;
+  font-size: 45px;
   color: white; }
 
 .textCarrito {
@@ -41,6 +41,11 @@ footer {
   font-family: 'Orbitron', sans-serif;
   font-size: 45px;
   color: white; }
+
+.textForm {
+  font-size: 12px;
+  margin-left: auto !important;
+  margin-right: auto !important; }
 
 /*--------------------------------*/
 /*EFECTOS*/
@@ -90,15 +95,27 @@ footer {
   .shoppingCartItemTitle {
     font-size: 10px; }
   .shoppingCartItemQuantity {
-    font-size: 8px;
+    font-size: 7px;
     background-color: darkslateblue; }
   .buttonDelete {
-    width: 2px;
-    height: 10px;
     font-size: 5px !important; }
   /*TITULOS CARRITO*/
   .textCarrito {
     font-size: 10px; }
+  .titleCarrito {
+    font-size: 20px; }
+  .textForm {
+    font-size: 12px;
+    margin-left: auto !important;
+    margin-right: auto !important; }
+  .centerTitulo {
+    display: grid;
+    place-items: center;
+    font-size: 10px; }
+  .fontTitulo {
+    display: grid;
+    place-items: center;
+    font-size: 22px; }
   /*DATOS CARD*/
   .addToCart {
     width: 50px;
@@ -120,6 +137,10 @@ footer {
     margin-right: auto; }
   header a {
     margin-left: auto !important;
-    margin-right: auto !important; } }
+    margin-right: auto !important; }
+  footer p {
+    color: white;
+    font-size: 12px;
+    text-align: center; } }
 
 /*--------------------------------*/
