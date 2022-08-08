@@ -263,14 +263,12 @@ function cleanForm() {
 //*************************** */
 //UTILIZACION DE FETCH
 //*************************** */
-fetch("https://api.estadisticasbcra.com/usd_of", {
-  headers: { 
-    Authorization: "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTEzODk0NDYsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJjb250YWN0bWF4aTUzMUBnbWFpbC5jb20ifQ.kQASThW8EhIfQoVpxFWEsYptdA_74HCGQxQFEUbgVZWpr6lcRYkLD-tWG9v5QXuCZUV3IDOM2WuVeG3ujeAScw",
-
-  },
-})
+let endpoint='https://openexchangerates.org/api/latest.json?app_id=30e579961f0e4fe0a00b2676cc9aff25'
+fetch(endpoint)
 .then((response) =>response.json ())
 .then((data) => mostrarData(data))
+.catch(e => console.log(e))
+
 const mostrarData = (data) => {
   console.log(data)
   let body =''
@@ -278,8 +276,7 @@ const mostrarData = (data) => {
   <thead class="thead-light">
     <tr>
     <th scope="col">Valor de Dolar al dia</th>
-      <th scope="col">${data[5016].d}</th>
-      <th scope="col">$ ${data[5016].v}</th>
+      <th scope="col">$ ${data.rates.ARS}</th>
     </tr>
   </thead> 
   <table>`
