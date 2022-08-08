@@ -34,7 +34,6 @@ function purchaseCompleted() {
   })
 }
 //------------------------------------------------------------
-
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
@@ -78,7 +77,6 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
     }
   }
 
-
   //*************************** */
   //CREACION ELEMENTO HTML DONDE SE MOSTRARA EL CARRITO
   //*************************** */
@@ -117,7 +115,50 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
     .addEventListener('change', quantityChanged);
 
   updateShoppingCartTotal();
+  dateLocal(itemImage, itemTitle, itemPrice);
 }
+
+//*************************** */
+//GUARDAR DATOS EN LOCALSTORAGE
+//*************************** */
+function dateLocal(productImage, productTitle, productPrice) {
+  let lst = [1, 2, 3]; // los datos que sean
+  lst = [{
+    imagen: productImage,
+
+    titulo: productTitle,
+
+    precio: productPrice
+  }];
+  let datos_existentes = localStorage.getItem('producto');
+  datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+  datos_existentes.push(lst);
+  localStorage.setItem('producto', JSON.stringify(datos_existentes));
+
+}
+
+//*************************** */
+//MOSTRAR DATOS DE LOCALSTORAGE
+//*************************** */
+
+// let dateLocal=JSON.parse(localStorage.getItem("producto"));
+// console.log(dateLocal)
+// let body = ''
+// for(let i=0; i < lst.length; i++){
+//       body += `<h1> ${lst[i].imagen} <h1>
+//       <FONT COLOR="navy"> ${lst[i].titulo}</FONT>`
+//       document.getElementById('dateLocal').innerHTML = body;
+// }
+
+// function getLocal(){
+//   let dateLocal=JSON.parse(localStorage.getItem("producto"));
+
+//   console.log(dateLocal)
+// let body = ''
+//       body += `<h1> ${datos[1].imagen} <h1>
+//       <FONT COLOR="navy"> ${datos[1].titulo}</FONT>`
+//       document.getElementById('dateLocal').innerHTML = body;
+//}
 
 //*************************** */
 //CALCULO TOTAL DE CARRITO $..
@@ -153,6 +194,7 @@ function updateShoppingCartTotal() {
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
   buttonClicked.closest('.shoppingCartItem').remove();
+  // localStorage.removeItem('producto');
   updateShoppingCartTotal();
 }
 
@@ -166,7 +208,7 @@ function quantityChanged(event) {
 }
 
 //**************************** */
-//BOTON DE COMPRA Y VACIAR CARRITO
+//BOTON DE COMPRA 
 //**************************** */
 function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
@@ -216,4 +258,30 @@ document.getElementById('form')
 //LIMPIAR FORM AL ENVIAR
 function cleanForm() {
   document.getElementById('form').reset();
+}
+
+//*************************** */
+//UTILIZACION DE FETCH
+//*************************** */
+fetch("https://api.estadisticasbcra.com/usd_of", {
+  headers: { 
+    Authorization: "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTEzODk0NDYsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJjb250YWN0bWF4aTUzMUBnbWFpbC5jb20ifQ.kQASThW8EhIfQoVpxFWEsYptdA_74HCGQxQFEUbgVZWpr6lcRYkLD-tWG9v5QXuCZUV3IDOM2WuVeG3ujeAScw",
+
+  },
+})
+.then((response) =>response.json ())
+.then((data) => mostrarData(data))
+const mostrarData = (data) => {
+  console.log(data)
+  let body =''
+  body +=`<table class="table">
+  <thead class="thead-light">
+    <tr>
+    <th scope="col">Valor de Dolar al dia</th>
+      <th scope="col">${data[5016].d}</th>
+      <th scope="col">$ ${data[5016].v}</th>
+    </tr>
+  </thead> 
+  <table>`
+  document.getElementById('data').innerHTML = body;
 }
