@@ -2,10 +2,11 @@
 // Alerta boton de compra
 //USO DE TERNARIO Y SWETTALERT
 //*************************** */
+let productLocal = [];
 let totals = 0;
 const alerta = document.getElementById("buttonSweet")
 alerta.addEventListener("click", () => {
-  (totals >= 1000.00) ? purchaseCompleted(): emptyCartAlert();
+  (totals >= 1000.00) ? purchaseCompleted() : emptyCartAlert();
 })
 
 function emptyCartAlert() {
@@ -134,31 +135,30 @@ function dateLocal(productImage, productTitle, productPrice) {
   datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
   datos_existentes.push(lst);
   localStorage.setItem('producto', JSON.stringify(datos_existentes));
-
+  DataStorage(datos_existentes);
 }
 
 //*************************** */
 //MOSTRAR DATOS DE LOCALSTORAGE
 //*************************** */
+DataStorage();
+function DataStorage(productLocal){
+  if (localStorage.length > 0) {
+      productLocal = JSON.parse(localStorage.getItem('producto'));
+      console.log(productLocal)
+      // let body = ''
+      // for (let i = 0; i < productLocal.length; i++) {
+      //   body += `
+      //   <p> ${productLocal[i].imagen}</p>
+      //   <p> ${productLocal[i].titulo}</p>
+      //   <p> ${productLocal[i].precio}</p>`
+        // document.getElementById('dateLocal').innerHTML = body;
+  } else {
+    console.log("No hay productos en localstorage")
+  }
+};
 
-// let dateLocal=JSON.parse(localStorage.getItem("producto"));
-// console.log(dateLocal)
-// let body = ''
-// for(let i=0; i < lst.length; i++){
-//       body += `<h1> ${lst[i].imagen} <h1>
-//       <FONT COLOR="navy"> ${lst[i].titulo}</FONT>`
-//       document.getElementById('dateLocal').innerHTML = body;
-// }
 
-// function getLocal(){
-//   let dateLocal=JSON.parse(localStorage.getItem("producto"));
-
-//   console.log(dateLocal)
-// let body = ''
-//       body += `<h1> ${datos[1].imagen} <h1>
-//       <FONT COLOR="navy"> ${datos[1].titulo}</FONT>`
-//       document.getElementById('dateLocal').innerHTML = body;
-//}
 
 //*************************** */
 //CALCULO TOTAL DE CARRITO $..
@@ -194,7 +194,7 @@ function updateShoppingCartTotal() {
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
   buttonClicked.closest('.shoppingCartItem').remove();
-  // localStorage.removeItem('producto');
+  localStorage.removeItem('producto');
   updateShoppingCartTotal();
 }
 
@@ -278,7 +278,7 @@ const mostrarData = (data) => {
     <th scope="col">Valor de Dolar al dia</th>
       <th scope="col">$ ${data.rates.ARS}</th>
     </tr>
-  </thead> 
+  </thead>
   <table>`
   document.getElementById('data').innerHTML = body;
 }
