@@ -145,6 +145,7 @@ DataStorage();
 function DataStorage(productLocal){
   if (localStorage.length > 0) {
       productLocal = JSON.parse(localStorage.getItem('producto'));
+      console.log("Productos Agregados a LocalStorage")
       console.log(productLocal)
       // let body = ''
       // for (let i = 0; i < productLocal.length; i++) {
