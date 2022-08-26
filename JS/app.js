@@ -92,7 +92,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
           </div>
           <div class="col-2">
               <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
-                  <p class="textCarrito item-price mb-0 shoppingCartItemPrice">${itemPrice}</p>
+                  <p class="textCarrito item-price2 mb-0 shoppingCartItemPrice">${itemPrice}</p>
               </div>
           </div>
           <div class="col-4">
@@ -116,50 +116,7 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
     .addEventListener('change', quantityChanged);
 
   updateShoppingCartTotal();
-  dateLocal(itemImage, itemTitle, itemPrice);
 }
-
-//*************************** */
-//GUARDAR DATOS EN LOCALSTORAGE
-//*************************** */
-function dateLocal(productImage, productTitle, productPrice) {
-  let lst = [1, 2, 3]; // los datos que sean
-  lst = [{
-    imagen: productImage,
-
-    titulo: productTitle,
-
-    precio: productPrice
-  }];
-  let datos_existentes = localStorage.getItem('producto');
-  datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-  datos_existentes.push(lst);
-  localStorage.setItem('producto', JSON.stringify(datos_existentes));
-  DataStorage(datos_existentes);
-}
-
-//*************************** */
-//MOSTRAR DATOS DE LOCALSTORAGE
-//*************************** */
-DataStorage();
-function DataStorage(productLocal){
-  if (localStorage.length > 0) {
-      productLocal = JSON.parse(localStorage.getItem('producto'));
-      console.log("Productos Agregados a LocalStorage")
-      console.log(productLocal)
-      // let body = ''
-      // for (let i = 0; i < productLocal.length; i++) {
-      //   body += `
-      //   <p> ${productLocal[i].imagen}</p>
-      //   <p> ${productLocal[i].titulo}</p>
-      //   <p> ${productLocal[i].precio}</p>`
-        // document.getElementById('dateLocal').innerHTML = body;
-  } else {
-    console.log("No hay productos en localstorage")
-  }
-};
-
-
 
 //*************************** */
 //CALCULO TOTAL DE CARRITO $..
@@ -195,7 +152,6 @@ function updateShoppingCartTotal() {
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
   buttonClicked.closest('.shoppingCartItem').remove();
-  localStorage.removeItem('producto');
   updateShoppingCartTotal();
 }
 

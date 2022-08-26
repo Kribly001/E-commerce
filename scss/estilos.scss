@@ -9,6 +9,16 @@
 @media only screen and (max-width: 768px) {
 
     /*DATOS ESTRUCTURA*/
+    .items {
+        .row {
+            display: grid !important;
+            grid-template-columns: repeat(1, 1fr) !important;
+            gap: 20px;
+            margin-left: 50px;
+            margin-right: 80px;
+        }
+    }
+
     .shopping-cart-image {
         width: 50px;
         height: 40px;
@@ -24,7 +34,7 @@
 
     .shoppingCartItemQuantity {
         font-size: 7px;
-        background-color: darkslateblue; 
+        background-color: darkslateblue;
     }
 
     .buttonDelete {
@@ -36,17 +46,17 @@
         font-size: 10px;
     }
 
-    .titleCarrito{
+    .titleCarrito {
         font-size: 20px;
     }
 
-    .textForm{
+    .textForm {
         font-size: 12px;
         margin-left: auto !important;
-        margin-right: auto !important;   
+        margin-right: auto !important;
     }
 
-    .centerTitulo{
+    .centerTitulo {
         display: grid;
         place-items: center;
         font-size: 10px;
@@ -60,21 +70,24 @@
 
     /*DATOS CARD*/
     .addToCart {
-        width: 50px;
-        height: 25px;
-        font-size: 5px !important;
+        width: 100px;
+        height: 40px;
+        font-size: 7px !important;
     }
 
     .item-title {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .item-image {
-        width: 9px;
-        height: 70px;
+        width: 180px !important;
+        height: 100px;
     }
 
     .item-price {
+        font-size: 17px;
+    }
+    .item-price2{
         font-size: 10px;
     }
 
@@ -96,14 +109,15 @@
         }
     }
 
-    
-footer {
-    p {
-        color: white;
-        font-size: 12px;
-        text-align: center;
+
+    footer {
+        p {
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
     }
-}
 
 }
+
 /*--------------------------------*/
